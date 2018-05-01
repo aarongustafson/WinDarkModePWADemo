@@ -14,4 +14,4 @@ function setColorMode() {
 
 uiSettings.addEventListener( 'colorValuesChanged', setColorMode );
 
-getColorMode();
+setColorMode();
