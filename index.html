@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!--  Meta  -->
+  <meta charset="UTF-8" />
+  <title>Testing PWA + Windows Dark Mode</title>
+  <link rel="manifest" href="manifest.json">
+  <!--  Styles  -->
+  <link rel="stylesheet" href="/c/default.css">
+</head>
+<body>
+  <h1>Testing PWA + Windows Dark Mode</h1>
+  
+  <p>This is a test to demonstrate how a PWA can respond to Windows’ Dark Mode.</p>
+
+  <pre><code class="js">if ( window.Windows )
+{
+  var uiSettings = new Windows.UI.ViewManagement.UISettings();
+  var color = uiSettings.getColorValue( Windows.UI.ViewManagement.UIColorType.background );
+  if ( color.r == 0 && color.g == 0 && color.b == 0 )
+  {
+    // Dark mode
+  }
+  else
+  {
+    // Light mode (default)
+  }
+}</code></pre>
+
+  <script src="/j/main.js"></script>
+  <script>
+    if (navigator.serviceWorker) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+</body>
+</html>
